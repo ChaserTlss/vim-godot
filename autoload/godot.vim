@@ -64,7 +64,9 @@ func! s:run_scene(scene_name) abort
     elseif exists(':Spawn')
         execute 'Spawn ' . godot_command
     elseif has("mac")
-        call system('open ' . godot_command)
+        call system(godot_command)
+        " open command in MacOs will not transfer the location information
+        " call system('open ' . godot_command)
     else
         call system(godot_command)
     endif
